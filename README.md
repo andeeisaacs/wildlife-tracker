@@ -4,25 +4,14 @@ Wildlife tracker is an open source Rails API for tracking animals and sightings 
 
 ## Description
 
-This API includes two relational models, Animals and Sightings. They have the following columns and datatypes. 
+This API includes two relational models, Animals and Sightings. They have the following columns and datatypes.
 
-**Animals (has_many: sightings)**
-*common_name
-  *data type: string
-*latin_name
-  *data type: string
-*kingdom
-  *data type: string
-  
-**Sightings (belongs_to: animal)** 
-*date
-  *data type: datetime (example: "2020.4.3.2.0.0")
-*latitude
-  *data type: float
-*longitutde
-  *data type: float
-*animal_id
-  *data type: integer
+
+Animals (has_many: sightings)
+common_name | latin_name | kingdom |
+------------|------------|---------|
+string      |string      |string
+
 
 ## How to use the API
 
