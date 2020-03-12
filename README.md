@@ -8,9 +8,10 @@ This API includes two relational models, Animals and Sightings. They have the fo
 
 
 Animals (has_many: sightings)
+
 common_name | latin_name | kingdom |
 ------------|------------|---------|
-string      |string      |string
+string | string | string
 
 
 ## How to use the API
