@@ -1,9 +1,12 @@
 class SightingsController < ApplicationController
 
     def index
-        @sightings = Sighting.all
-        render json: @sightings
+        @sightings = Sighting.where(date: params[:start_date]..params[:end_date])
+        render json: [Sighting.all, @sightings]
+        ##@sightings = Sighting.all
+        ##render json: @sightings
     end
+
 
     def show
         @sighting = Sighting.find(sighting_params)
@@ -40,6 +43,6 @@ class SightingsController < ApplicationController
 
     private
     def sighting_params
-        params.require(:sighting).permit(:date, :latitude, :logitude, :animal_id)
+        params.require(:sighting).permit(:date, :animal_id, :latitude, :longitude, :start_date, :end_date)
     end
 end

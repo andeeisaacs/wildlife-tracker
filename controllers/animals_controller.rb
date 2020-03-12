@@ -15,12 +15,12 @@ class AnimalsController < ApplicationController
         if @animal.valid?
             render json: @animal
         else
-            render json: @animal.errors
+            render json: { message: "Unprocessable Entity", errors: @animal.errors }, status: 422 #Unprocessable Entity
         end
     end
 
     def destroy
-        @animal = Animal.find(params[id])
+        @animal = Animal.find(params[:id])
         if @animal.destroy
             render json: @animal
         else
@@ -40,6 +40,6 @@ class AnimalsController < ApplicationController
 
     private
     def animal_params
-        params.require(:animal).permit(:common_name, :latin_name, :kingdom)
+        params.require(:animal).permit(:common_name, :latin_name, :kingdom, sightings_attributes: [ :date, :latitude, :longitude ])
     end
 end
